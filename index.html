@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadi Mirza | Hardware & Firmware Engineer</title>
+    <!-- Tailwind CSS for modern, quick styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans antialiased">
+
+    <!-- HERO SECTION -->
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+        <!-- PROFILE PICTURE PLACEHOLDER -->
+        <!-- Replace 'profile.jpg' with a professional photo of yourself -->
+        <img src="https://via.placeholder.com/150" alt="Hadi Mirza" class="w-32 h-32 rounded-full border-4 border-blue-500 mb-6 object-cover shadow-lg hover:scale-105 transition-transform duration-300">
+        
+        <h1 class="text-5xl font-bold mb-4">Hadi Mirza</h1>
+        <h2 class="text-2xl text-blue-400 mb-6">Electrical Engineering Student @ UC Santa Cruz</h2>
+        <p class="max-w-2xl text-gray-400 mb-8 text-lg">
+            Bridging the gap between hardware and firmware. Specializing in PCB design, power electronics, embedded C/C++, and FPGA development.
+        </p>
+        
+        <div class="flex space-x-6">
+            <a href="mailto:hadim5296@gmail.com" class="text-gray-400 hover:text-white text-2xl transition"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/hadi" target="_blank" class="text-gray-400 hover:text-blue-500 text-2xl transition"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/yourusername" target="_blank" class="text-gray-400 hover:text-white text-2xl transition"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+
+    <!-- EXPERIENCE SECTION -->
+    <section class="py-20 bg-gray-800 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-10 border-b-2 border-blue-500 pb-2 inline-block">Experience</h2>
+            
+            <div class="bg-gray-900 p-8 rounded-lg shadow-md border border-gray-700">
+                <div class="flex justify-between items-start flex-wrap gap-4 mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Electrical Team Member - Firmware & Power Electronics</h3>
+                        <h4 class="text-xl text-blue-400">Formula Slug, UC Santa Cruz</h4>
+                    </div>
+                    <span class="text-gray-400 font-mono">Oct 2024 – Present</span>
+                </div>
+                <ul class="list-disc list-inside text-gray-300 space-y-2 mt-4">
+                    <li>Developed <strong>embedded C/C++ firmware</strong> for vehicle control systems, implementing <strong>CAN/CAN FD bus</strong> communication.</li>
+                    <li>Researched and prototyped a custom <strong>CAN bootloader</strong> for STM32 microcontrollers to enable OTA firmware flashing.</li>
+                    <li>Configured microcontroller <strong>flash memory</strong> via custom linker scripts to enable real-time vehicle configuration over CAN.</li>
+                    <li>Designed high-voltage power electronics, architecting <strong>BMS</strong> and shutdown system wiring in <strong>KiCad</strong>.</li>
+                </ul>
+                <!-- FORMULA SLUG IMAGE/VIDEO PLACEHOLDER -->
+                <!-- Add a picture of the car, your KiCad schematics, or the battery pack here -->
+                <div class="mt-6">
+                    <img src="https://via.placeholder.com/800x400" alt="Formula Slug Project" class="w-full rounded-lg border border-gray-700 hover:opacity-80 transition cursor-pointer">
+                    <p class="text-sm text-center text-gray-500 mt-2">Replace with KiCad schematic or Formula SAE vehicle photo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION (THE VISUAL PORTFOLIO) -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-10 border-b-2 border-blue-500 pb-2 inline-block">Featured Projects</h2>
+            
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1: FPGA Board -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:-translate-y-2 transition-transform duration-300">
+                    <!-- IMAGE PLACEHOLDER -->
+                    <img src="https://via.placeholder.com/600x300" alt="6-Layer FPGA Board" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">6-Layer FPGA Development Board</h3>
+                        <p class="text-blue-400 text-sm mb-4 font-mono">Altium | High-Speed Routing | Impedance Control</p>
+                        <p class="text-gray-400 text-sm mb-4">Architected a custom 6-layer PCB integrating an FPGA with dedicated power/ground planes to minimize EMI. Length-matched high-speed differential pairs tuned for 50MHz signals.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2: Whiteboard Robot -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:-translate-y-2 transition-transform duration-300">
+                    <!-- VIDEO PLACEHOLDER: Great for robotics! -->
+                    <div class="w-full h-48 bg-black flex items-center justify-center relative">
+                        <!-- Replace src with your actual .mp4 file once uploaded -->
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-70">
+                            <!-- <source src="assets/robot-drawing.mp4" type="video/mp4"> -->
+                        </video>
+                        <span class="absolute text-gray-500 text-sm">Replace with video of robot drawing</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Whiteboard CNC Drawing Robot</h3>
+                        <p class="text-blue-400 text-sm mb-4 font-mono">C/C++ | Arduino | Kinematics | PCB Design</p>
+                        <p class="text-gray-400 text-sm mb-4">Engineered a 2D robotic drawing system utilizing X-Y kinematics. Developed robust firmware to actuate stepper motors, translating complex images into dynamic toolpaths.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3: Ground Bounce EMI -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:-translate-y-2 transition-transform duration-300">
+                    <!-- IMAGE PLACEHOLDER -->
+                    <img src="https://via.placeholder.com/600x300" alt="EMI Detector PCB" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Ground Bounce EMI Detector</h3>
+                        <p class="text-blue-400 text-sm mb-4 font-mono">Altium Designer | M60 Laminates | Hand-Soldering</p>
+                        <p class="text-gray-400 text-sm mb-4">Designed a custom 2-layer PCB to detect and measure ground bounce and EMI. Hand-soldered surface-mount components on high-frequency M60 laminates.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4: VGA Game -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:-translate-y-2 transition-transform duration-300">
+                    <!-- IMAGE PLACEHOLDER -->
+                    <img src="https://via.placeholder.com/600x300" alt="VGA Game Output" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Hardware-Accelerated VGA Game Engine</h3>
+                        <p class="text-blue-400 text-sm mb-4 font-mono">Verilog | Xilinx Artix-7 | Vivado</p>
+                        <p class="text-gray-400 text-sm mb-4">Implemented a custom graphics rendering pipeline using Structural Verilog. Designed a VGA controller with timing synchronization to drive a 640x480 display at 60Hz.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="py-20 bg-gray-800 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-10 border-b-2 border-blue-500 pb-2 inline-block">Technical Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <!-- Skill Badges -->
+                <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-full border border-gray-600">C / C++</span>
+                <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-full border border-gray-600">Python</span>
+                <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-full border border-gray-600">Verilog</span>
+                <span class="bg-blue-900 text-blue-200 px-4 py-2 rounded-full border border-blue-700">PCB Design (Altium, KiCad)</span>
+                <span class="bg-blue-900 text-blue-200 px-4 py-2 rounded-full border border-blue-700">Power Electronics</span>
+                <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-full border border-gray-600">STM32 / ESP32 / Arduino</span>
+                <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-full border border-gray-600">FPGA (Xilinx Artix-7)</span>
+                <span class="bg-blue-900 text-blue-200 px-4 py-2 rounded-full border border-blue-700">CAN / CAN FD</span>
+                <span class="bg-gray-700 text-gray-200 px-4 py-2 rounded-full border border-gray-600">SolidWorks / Onshape</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-center py-8 border-t border-gray-800">
+        <p class="text-gray-500">© 2026 Hadi Mirza. Built for the future of hardware.</p>
+    </footer>
+
+</body>
+</html>
