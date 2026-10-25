@@ -52,7 +52,7 @@ h1{font-size:clamp(2.4rem,5.5vw,3.8rem);line-height:1.05;letter-spacing:-.02em;m
 .chip{font-family:var(--mono);font-size:.78rem;padding:5px 10px;border-radius:6px;background:var(--card);border:1px solid var(--line);color:var(--muted)}
 .hero-media{position:relative}
 .hero-media .car{border-radius:var(--radius);border:1px solid var(--line);aspect-ratio:4/5;object-fit:cover;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-.hero-media .me{position:absolute;left:-32px;bottom:-28px;width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:50% 40%;border:4px solid var(--bg);box-shadow:0 0 0 2px var(--copper)}
+.hero-media .me{position:absolute;left:-32px;bottom:-28px;width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:50% 45%;border:4px solid var(--bg);box-shadow:0 0 0 2px var(--copper)}
 .hero-media .tag{position:absolute;right:14px;top:14px;background:rgba(11,15,20,.8);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-family:var(--mono);font-size:.75rem;color:var(--copper2)}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-top:48px}.hero-media{max-width:420px;margin:0 auto 20px}.hero-media .me{left:-10px}}
 /* sections */
@@ -333,6 +333,32 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
       </article>
 
       <article class="card proj reveal">
+        <div class="pm">
+          <svg class="stack-svg" viewBox="0 0 400 250" role="img" aria-label="Illustration of a robot path over a gas concentration heat map">
+            <defs><radialGradient id="gas1"><stop offset="0" stop-color="#e8a33d" stop-opacity=".85"/><stop offset="1" stop-color="#e8a33d" stop-opacity="0"/></radialGradient>
+            <radialGradient id="gas2"><stop offset="0" stop-color="#3fb68b" stop-opacity=".6"/><stop offset="1" stop-color="#3fb68b" stop-opacity="0"/></radialGradient></defs>
+            <g stroke="#223040" stroke-width="1">
+              <path d="M40 30H360M40 70H360M40 110H360M40 150H360M40 190H360M40 30V190M80 30V190M120 30V190M160 30V190M200 30V190M240 30V190M280 30V190M320 30V190M360 30V190" fill="none"/>
+            </g>
+            <circle cx="255" cy="90" r="80" fill="url(#gas1)"/>
+            <circle cx="120" cy="150" r="70" fill="url(#gas2)"/>
+            <path d="M60 50H340V90H60V130H340V170H60" fill="none" stroke="#e6edf3" stroke-width="2" stroke-dasharray="6 6" opacity=".7"/>
+            <rect x="182" y="120" width="22" height="18" rx="4" fill="#e6edf3"/><circle cx="187" cy="140" r="3" fill="#0b0f14"/><circle cx="199" cy="140" r="3" fill="#0b0f14"/>
+            <text x="40" y="226" font-family="JetBrains Mono,monospace" font-size="11" fill="#f5c06b">AUTONOMOUS SURVEY → GAS-CONCENTRATION MAP</text>
+          </svg>
+        </div>
+        <div class="pb">
+          <div class="meta"><h3>Autonomous Gas-Mapping Robot</h3><span class="date">Fall 2026 – Present</span></div>
+          <p>Senior capstone, industry-sponsored. Our team is building a robot that autonomously surveys an area and produces a map of gas concentration.</p>
+          <ul class="bul">
+            <li>Contributing to the sensor board hardware in KiCad.</li>
+            <li>Working on MCU selection, power budgeting, and the low-noise analog front-end for the gas sensor, with SPICE checks before layout.</li>
+          </ul>
+          <div class="tags"><span class="tag2">KiCad</span><span class="tag2">Mixed-signal</span><span class="tag2">Power budgeting</span><span class="tag2">ECE 129</span></div>
+        </div>
+      </article>
+
+      <article class="card proj reveal">
         <div class="pm three">
           <img src="assets/img/robot-frame.jpg" alt="Whiteboard CNC robot frame" data-cap="Whiteboard CNC drawing robot — X-Y gantry">
           <img src="assets/img/robot-wiring.jpg" alt="Wiring the stepper drivers" data-cap="Wiring the stepper drivers and control electronics">
@@ -367,7 +393,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
         </div>
       </article>
 
-      <article class="card proj wide reveal">
+      <article class="card proj reveal">
         <div class="pm two">
           <img src="assets/img/vga-game.jpg" alt="VGA game running on a monitor" data-cap="Hardware VGA game running at 640×480 @ 60 Hz">
           <img src="assets/img/vga-basys3.jpg" alt="Basys 3 FPGA board" data-cap="Running on a Basys 3 (Artix-7)">
@@ -395,7 +421,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
     <div class="courses">
       <div class="card course now reveal"><span class="code">ECE 172 <span class="now-pill">NOW</span></span><h4>Advanced Analog Integrated Circuits</h4><p>MOSFET models, single-stage and differential amplifiers, current mirrors, frequency response.</p><div class="tools"><span>LTspice</span><span>PSpice</span><span>SPICE models</span></div></div>
       <div class="card course now reveal"><span class="code">ECE 175 / 175L <span class="now-pill">NOW</span></span><h4>Energy Generation &amp; Control + Lab</h4><p>Three-phase power, transformers, synchronous machines, transmission lines, power flow, faults.</p><div class="tools"><span>PSCAD/EMTDC</span><span>PowerWorld</span><span>MATLAB/Simulink</span></div></div>
-      <div class="card course now reveal"><span class="code">ECE 129A–C <span class="now-pill">NOW</span></span><h4>Senior Capstone Project</h4><p>Year-long design sequence: requirements, system architecture, subsystem validation, and integration.</p><div class="tools"><span>Systems design</span><span>Gantt planning</span><span>Design reviews</span></div></div>
+      <div class="card course now reveal"><span class="code">ECE 129A–C <span class="now-pill">NOW</span></span><h4>Senior Capstone Project</h4><p>Year-long, industry-sponsored team project: an autonomous robot that maps gas concentration across an area.</p><div class="tools"><span>Systems design</span><span>Gantt planning</span><span>Design reviews</span></div></div>
       <div class="card course reveal"><span class="code">ECE 173</span><h4>High-Speed Digital Design</h4><p>Transmission lines, terminations, ground bounce, crosstalk, grounding, shielding, and EMC.</p><div class="tools"><span>Altium</span><span>Oscilloscope</span><span>SI/EMI</span></div></div>
       <div class="card course reveal"><span class="code">ECE 171 / 171L</span><h4>Analog Electronics + Lab</h4><p>BJT and MOSFET amplifier design, biasing, op-amp circuits, and bench characterization.</p><div class="tools"><span>PSpice</span><span>Keysight scopes</span><span>Breadboarding</span></div></div>
       <div class="card course reveal"><span class="code">ECE 101 / 101L</span><h4>Signals &amp; Systems + Lab</h4><p>LTI systems, convolution, Fourier and Laplace transforms, sampling and modulation.</p><div class="tools"><span>MATLAB</span><span>Python</span></div></div>
@@ -415,7 +441,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
       <div class="card skill reveal"><h4>Hardware Design</h4><ul><li>PCB design — KiCad, Altium</li><li>Multi-layer &amp; high-speed routing</li><li>Power electronics &amp; MOSFET drive</li><li>Analog circuit design</li><li>Li-ion charging &amp; battery systems</li></ul></div>
       <div class="card skill reveal"><h4>Simulation</h4><ul><li>LTspice / PSpice</li><li>PSCAD / EMTDC</li><li>PowerWorld</li><li>MATLAB / Simulink</li></ul></div>
       <div class="card skill reveal"><h4>Lab &amp; Fab</h4><ul><li>Oscilloscopes, function generators, DMMs</li><li>SMD &amp; through-hole soldering</li><li>Board bring-up &amp; debug</li><li>Gerbers / JLCPCB ordering</li><li>3D printing, Onshape</li></ul></div>
-      <div class="card skill reveal"><h4>Code &amp; Digital</h4><ul><li>C, C++, Python</li><li>Verilog, Vivado (Artix-7)</li><li>Arduino, ESP32, STM32</li><li>RISC-V assembly</li><li>Git, Linux</li></ul></div>
+      <div class="card skill reveal"><h4>Code &amp; Digital</h4><ul><li>C, C++, Python</li><li>Verilog, Vivado (Artix-7)</li><li>Arduino, ESP32, STM32</li><li>RISC-V assembly</li><li>Git</li></ul></div>
     </div>
   </div>
 </section>
