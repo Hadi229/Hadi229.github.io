@@ -115,6 +115,11 @@ ul.bul li::before{content:"";position:absolute;left:0;top:.68em;width:8px;height
 .proj p{color:#c2cdd8;font-size:.95rem}
 .proj ul.bul{font-size:.92rem;margin-top:4px}
 @media(min-width:761px){.proj.wide{grid-column:1/-1;flex-direction:row}.proj.wide .pm{height:auto;min-height:280px;flex:1.15}.proj.wide .pb{flex:1;justify-content:center}}
+.proj .pm.vids{display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:1fr 1fr;gap:3px;background:var(--line)}
+.proj .pm.vids video{width:100%;height:100%;object-fit:cover;display:block;min-height:0;background:#000}
+.proj .pm.vids video:first-child{grid-row:span 2}
+@media(min-width:761px){.proj.wide .pm.vids{min-height:400px}}
+@media(max-width:760px){.proj .pm.vids{height:340px}}
 .stack-svg{width:100%;height:100%;background:radial-gradient(circle at 30% 20%,#1b2633,#0e141b)}
 /* coursework */
 .courses{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -282,6 +287,26 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
     <div class="sec-head reveal"><span class="num">03</span><h2>Projects</h2></div>
     <div class="grid">
 
+      <article class="card proj wide reveal">
+        <div class="pm vids">
+          <video src="assets/video/robot-draw-2.mp4" poster="assets/video/robot-draw-2.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Robot drawing DRAWING TEST #1 in two colors"></video>
+          <video src="assets/video/robot-draw-1.mp4" poster="assets/video/robot-draw-1.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Pen carriage writing on the whiteboard"></video>
+          <video src="assets/video/robot-draw-4.mp4" poster="assets/video/robot-draw-4.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Close-up of the dual-pen carriage"></video>
+        </div>
+        <div class="pb">
+          <span class="badge">● FIRST DRAWING TEST · 9/12/26</span>
+          <div class="meta"><h3>Whiteboard CNC Drawing Robot</h3><span class="date">2026 – Present</span></div>
+          <p>A 2-axis plotter, built like a 3D-printer gantry, that writes and draws on a full-size whiteboard. Above: its first drawing test.</p>
+          <ul class="bul">
+            <li>X-Y gantry on linear rails with belt-driven stepper motors and 3D-printed frame parts.</li>
+            <li>Dual-pen carriage switches between two markers to draw multi-color text and shapes.</li>
+            <li>C/C++ firmware on Arduino driving the steppers through external drivers.</li>
+            <li>Next: a custom PCB to consolidate power and control, and image-to-toolpath conversion.</li>
+          </ul>
+          <div class="tags"><span class="tag2">C/C++</span><span class="tag2">Arduino</span><span class="tag2">Stepper control</span><span class="tag2">3D printing</span><span class="tag2">Kinematics</span></div>
+        </div>
+      </article>
+
       <article class="card proj reveal">
         <div class="pm three">
           <img src="assets/img/gb-setup.jpg" alt="Assembled ground bounce detector PCB" data-cap="Ground Bounce Detector — assembled, hand-soldered board">
@@ -359,25 +384,6 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
       </article>
 
       <article class="card proj reveal">
-        <div class="pm three">
-          <img src="assets/img/robot-frame.jpg" alt="Whiteboard CNC robot frame" data-cap="Whiteboard CNC drawing robot — X-Y gantry">
-          <img src="assets/img/robot-wiring.jpg" alt="Wiring the stepper drivers" data-cap="Wiring the stepper drivers and control electronics">
-          <img src="assets/img/robot-driver.jpg" alt="Stepper motor driver" data-cap="Stepper driver bring-up">
-        </div>
-        <!-- VIDEO: export a clip of the robot drawing from Photos as assets/robot.mp4, then replace the first <img> above with:
-             <video src="assets/robot.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;grid-row:span 2"></video> -->
-        <div class="pb">
-          <div class="meta"><h3>Whiteboard CNC Drawing Robot</h3><span class="date">2026 – Present</span></div>
-          <p>A 2-axis plotter, built like a 3D-printer gantry, that draws digital images onto a whiteboard.</p>
-          <ul class="bul">
-            <li>C/C++ firmware on Arduino driving stepper motors through external drivers; draws precise geometric shapes.</li>
-            <li>Designing a custom PCB to consolidate power and control; working on image-to-toolpath conversion.</li>
-          </ul>
-          <div class="tags"><span class="tag2">C/C++</span><span class="tag2">Arduino</span><span class="tag2">Stepper control</span><span class="tag2">Kinematics</span></div>
-        </div>
-      </article>
-
-      <article class="card proj reveal">
         <div class="pm two">
           <img src="assets/img/pobo-pcb.jpg" alt="POBO carrier PCB" data-cap="POBO Universal Pillow Alarm — fabricated carrier PCB">
           <img src="assets/img/pobo-proto.jpg" alt="ESP32 breadboard prototype" data-cap="ESP32 breadboard prototype">
@@ -393,7 +399,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
         </div>
       </article>
 
-      <article class="card proj reveal">
+      <article class="card proj wide reveal">
         <div class="pm two">
           <img src="assets/img/vga-game.jpg" alt="VGA game running on a monitor" data-cap="Hardware VGA game running at 640×480 @ 60 Hz">
           <img src="assets/img/vga-basys3.jpg" alt="Basys 3 FPGA board" data-cap="Running on a Basys 3 (Artix-7)">
