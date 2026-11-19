@@ -110,6 +110,8 @@ ul.bul li::before{content:"";position:absolute;left:0;top:.68em;width:8px;height
 .proj .pm.three{grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr}
 .proj .pm.three img:first-child{grid-row:span 2}
 .proj .pm img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;min-height:0}
+.proj .pm.diag{grid-template-columns:1fr 1fr;background:#f3f4f1;height:auto;padding:10px;gap:10px}
+.proj .pm.diag img{object-fit:contain;height:auto;aspect-ratio:1.47;border-radius:4px;background:#f3f4f1}
 .proj .pb{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
 .proj .meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .proj p{color:#c2cdd8;font-size:.95rem}
@@ -325,19 +327,9 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
       </article>
 
       <article class="card proj reveal">
-        <div class="pm">
-          <svg class="stack-svg" viewBox="0 0 400 250" role="img" aria-label="Illustration of a robot path over a gas concentration heat map">
-            <defs><radialGradient id="gas1"><stop offset="0" stop-color="#e8a33d" stop-opacity=".85"/><stop offset="1" stop-color="#e8a33d" stop-opacity="0"/></radialGradient>
-            <radialGradient id="gas2"><stop offset="0" stop-color="#3fb68b" stop-opacity=".6"/><stop offset="1" stop-color="#3fb68b" stop-opacity="0"/></radialGradient></defs>
-            <g stroke="#223040" stroke-width="1">
-              <path d="M40 30H360M40 70H360M40 110H360M40 150H360M40 190H360M40 30V190M80 30V190M120 30V190M160 30V190M200 30V190M240 30V190M280 30V190M320 30V190M360 30V190" fill="none"/>
-            </g>
-            <circle cx="255" cy="90" r="80" fill="url(#gas1)"/>
-            <circle cx="120" cy="150" r="70" fill="url(#gas2)"/>
-            <path d="M60 50H340V90H60V130H340V170H60" fill="none" stroke="#e6edf3" stroke-width="2" stroke-dasharray="6 6" opacity=".7"/>
-            <rect x="182" y="120" width="22" height="18" rx="4" fill="#e6edf3"/><circle cx="187" cy="140" r="3" fill="#0b0f14"/><circle cx="199" cy="140" r="3" fill="#0b0f14"/>
-            <text x="40" y="226" font-family="JetBrains Mono,monospace" font-size="11" fill="#f5c06b">AUTONOMOUS SURVEY → GAS-CONCENTRATION MAP</text>
-          </svg>
+        <div class="pm two diag">
+          <img src="assets/img/rover-block.jpg" alt="AtmoSense Rover system architecture block diagram" data-cap="System architecture: inputs → processing → control → outputs, with the interface on every connection">
+          <img src="assets/img/rover-layout.jpg" alt="AtmoSense Rover physical layout diagram" data-cap="Physical layout: operating environment, rover top view and side view with the scissor-lift sensing head">
         </div>
         <div class="pb">
           <div class="meta"><h3>Autonomous Gas-Mapping Robot</h3><span class="date">Fall 2026 – Present</span></div>
@@ -345,8 +337,9 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
           <ul class="bul">
             <li>Contributing to the sensor board hardware in KiCad.</li>
             <li>Working on MCU selection, power budgeting, and the low-noise analog front-end for the gas sensor, with SPICE checks before layout.</li>
+            <li>Drew the system architecture and physical layout (above, click to zoom): ESP32-C6 sensing firmware over I²C/UART, a Raspberry Pi running Python + SLAM, and a scissor lift that raises a 360° LiDAR and sensing head from floor level to breathing height.</li>
           </ul>
-          <div class="tags"><span class="tag2">KiCad</span><span class="tag2">Mixed-signal</span><span class="tag2">Power budgeting</span><span class="tag2">ECE 129</span></div>
+          <div class="tags"><span class="tag2">KiCad</span><span class="tag2">Mixed-signal</span><span class="tag2">Power budgeting</span><span class="tag2">System architecture</span><span class="tag2">ECE 129</span></div>
         </div>
       </article>
 
