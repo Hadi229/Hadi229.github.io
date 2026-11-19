@@ -345,18 +345,23 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
       </article>
 
       <article class="card proj reveal">
-        <div class="pm two">
-          <img src="assets/img/pobo-pcb.jpg" alt="POBO carrier PCB" data-cap="POBO Universal Pillow Alarm: fabricated carrier PCB">
-          <img src="assets/img/pobo-proto.jpg" alt="ESP32 breadboard prototype" data-cap="ESP32 breadboard prototype">
+        <div class="pm three">
+          <img src="assets/img/pobo-rev2-exploded.jpg" alt="Exploded 3D render of POBO Rev 2: lid, populated PCB, base with battery and motors" data-cap="Rev 2 exploded view from CAD: flexure-button lid, 59 × 37 mm board, base with the 1000 mAh LiPo and two coin motors">
+          <img src="assets/img/pobo-rev2-pcb.jpg" alt="POBO Rev 2 PCB top layer rendered from Gerbers" data-cap="Rev 2 board, top layer rendered from the Gerbers: ESP32-C3 module at right with the antenna keep-out at the board edge">
+          <img src="assets/img/pobo-pcb.jpg" alt="Fabricated POBO Rev 1 carrier PCB" data-cap="Rev 1: fabricated ESP32 DevKit carrier board (JLCPCB), the starting point for the redesign">
         </div>
         <div class="pb">
-          <div class="meta"><h3>POBO: Silent Haptic Pillow Alarm</h3><span class="date">Fall 2026</span></div>
-          <p>A wake-up alarm that vibrates your pillow instead of making noise. ESP32 carrier board designed in KiCad and fabricated through JLCPCB.</p>
+          <span class="badge">● REV 2 DESIGN COMPLETE · BOARDS NOT YET ORDERED</span>
+          <div class="meta"><h3>POBO: Silent Haptic Pillow Alarm</h3><span class="date">Fall 2026 – Present</span></div>
+          <p>A wake-up alarm that vibrates your pillow instead of making noise, so roommates and partners keep sleeping. A phone sets the alarm over Bluetooth; the block keeps time and wakes you on its own.</p>
           <ul class="bul">
-            <li>Logic-level MOSFET (IRLZ34N) low-side switch with flyback protection driving 10 haptic motors.</li>
-            <li>USB-C Li-ion charging (TP4056), power switch, status LEDs, antenna keep-out; iterated through five board revisions.</li>
+            <li>Rev 1: ESP32 DevKit carrier board with a TP4056 charger, fabricated through JLCPCB, plus a breadboard prototype.</li>
+            <li>A design review of Rev 1 found the AMS1117 regulator would brown out on a LiPo, the board idled at several mA, and the internal clock could drift minutes overnight.</li>
+            <li>Rev 2: a 59 × 37 mm 2-layer board with an ESP32-C3 module, MCP73831 charger, DW01A + FS8205A cell protection, a 2 µA RT9080 regulator, a 32.768 kHz crystal and a LIS2DH12 accelerometer for a sleep score. About 30 µA asleep, roughly 6 weeks per charge (estimated).</li>
+            <li>AO3400A low-side driver with a flyback diode runs two coin motors. Pinouts checked against datasheets; autorouted with Freerouting, DRC clean.</li>
+            <li>64 × 42 × 20 mm snap-fit PETG enclosure with a flexure stop button, checked for interference in CAD.</li>
           </ul>
-          <div class="tags"><span class="tag2">KiCad</span><span class="tag2">ESP32</span><span class="tag2">Li-ion charging</span><span class="tag2">JLCPCB</span></div>
+          <div class="tags"><span class="tag2">KiCad</span><span class="tag2">ESP32-C3</span><span class="tag2">BLE</span><span class="tag2">Li-ion protection</span><span class="tag2">Low-power design</span><span class="tag2">CadQuery / Onshape</span><span class="tag2">3D printing</span></div>
         </div>
       </article>
 
