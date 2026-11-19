@@ -274,12 +274,12 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
         </ul>
         <div class="tags"><span class="tag2">KiCad</span><span class="tag2">PCB layout</span><span class="tag2">Power MOSFETs</span><span class="tag2">Gate drivers</span><span class="tag2">Kelvin sensing</span></div>
       </div>
-      <div class="media" style="background:#0d1117"><img src="assets/img/loadslammer-pcb.jpg" alt="FS5 Load Slammer routed 2-layer PCB in KiCad" data-cap="FS5 Load Slammer: routed 2-layer PCB (48.5 × 42 mm), bottom ground pour shown"></div>
+      <div class="media" style="background:#0d1117"><img src="assets/img/loadslammer-pcb-top.jpg" alt="FS5 Load Slammer 2-layer PCB, top side" data-cap="FS5 Load Slammer: 2-layer PCB, top side (48.5 × 42 mm)"></div>
     </div>
     <div class="subgrid reveal">
       <div class="card"><img src="assets/img/loadslammer-schematic.jpg" alt="Earlier Rev 3 linear-mode schematic" data-cap="Earlier Rev 3 schematic: op-amp linear control loop, replaced by the switch-mode design"><p>Earlier Rev 3: an op-amp loop ran the MOSFET in its linear region. Replaced by the switch-mode design after review.</p></div>
-      <div class="card" style="padding:18px"><h4 style="margin-bottom:10px">Test setup</h4><ul class="bul" style="font-size:.88rem"><li>12 V DC-DC converter (50 A) as the device under test</li><li>Electronic load holds the 0 A or 37.5 A baseline</li><li>Function generator triggers 1 ms pulses; scope reads V<sub>out</sub> and the 5 mV/A current signal</li></ul></div>
-      <div class="card" style="padding:18px"><h4 style="margin-bottom:10px">Now / next</h4><ul class="bul" style="font-size:.88rem"><li>Testing: capture the 0&rarr;25% and 75&rarr;100% load steps</li><li>Measure the voltage dip and recovery time</li><li>Decide on a heatsink for longer or faster pulses</li></ul></div>
+      <div class="card"><img src="assets/img/loadslammer-pcb-pair.jpg" alt="Top and bottom layers of the Load Slammer PCB" data-cap="Top and bottom: the 3 mm return runs on the bottom layer directly under the 12 A path, inside a GND pour"><p>Top and bottom layers. The 3 mm return runs directly under the 12 A path to keep loop inductance low.</p></div>
+      <div class="card" style="padding:18px"><h4 style="margin-bottom:10px">Test setup</h4><ul class="bul" style="font-size:.88rem"><li>12 V DC-DC converter (50 A) as the device under test</li><li>Electronic load holds the 0 A or 37.5 A baseline</li><li>Function generator triggers 1 ms pulses; scope reads V<sub>out</sub> and the 5 mV/A current signal</li></ul><h4 style="margin:16px 0 10px">Now / next</h4><ul class="bul" style="font-size:.88rem"><li>Testing: capture the 0&rarr;25% and 75&rarr;100% load steps</li><li>Measure the voltage dip and recovery time</li><li>Decide on a heatsink for longer or faster pulses</li></ul></div>
     </div>
   </div>
 </section>
