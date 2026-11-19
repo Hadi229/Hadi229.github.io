@@ -207,7 +207,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
 <div class="wrap">
   <div class="stats card" style="border-radius:0 0 var(--radius) var(--radius);border-top:0">
     <div class="stat"><div class="v">2 yrs</div><div class="l">On Formula Slug's EV electrical team</div></div>
-    <div class="stat"><div class="v">50 A</div><div class="l">Load step for LV supply testing</div></div>
+    <div class="stat"><div class="v">~12 A</div><div class="l">Load step for LV DC-DC testing</div></div>
     <div class="stat"><div class="v">±20 mV</div><div class="l">Ground bounce captured at 10 ns/div</div></div>
     <div class="stat"><div class="v">5+</div><div class="l">Boards designed &amp; fabricated</div></div>
   </div>
@@ -236,7 +236,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
         <div class="role-top"><div class="org">Formula Slug · UC Santa Cruz FSAE Electric</div><span class="date">Oct 2024 – Present</span></div>
         <ul class="bul">
           <li>Design LV and power-electronics hardware in <b>KiCad</b> for the team's electric race car, following the team's FS-LV schematic standards (left-to-right signal flow, top-to-bottom power flow, global power flags, templated title blocks).</li>
-          <li>Leading design of the <b>FS5 Load Slammer</b>, a closed-loop 50 A transient-load tester used to characterize the slew rate and transient response of the team's custom LV power supplies.</li>
+          <li>Leading design of the <b>FS5 Load Slammer</b>, a switch-mode load-step tester that pulls a ~12 A step (25% of a 50 A converter) to measure the transient response of the team's 12 V DC-DC converter; schematic and 2-layer PCB complete, now in testing.</li>
           <li>Contributed to <b>BMS and shutdown-circuit</b> schematics and wiring for safe emergency shutdown and FSAE rules compliance.</li>
           <li>Developing an <b>in-helmet driver audio</b> board (MAX98357A I²S Class-D amplifier + condenser mic) to support driver-to-pit radio communication.</li>
           <li>Component selection and sourcing from datasheets (DigiKey/Mouser), BOM upkeep, and design reviews with the PE lead.</li>
@@ -257,28 +257,29 @@ footer{padding:28px 0;color:var(--muted);font-size:.85rem;text-align:center}
     <div class="sec-head reveal"><span class="num">02</span><h2>Featured: FS5 Load Slammer</h2></div>
     <div class="card feature reveal">
       <div class="body">
-        <span class="badge">● IN PROGRESS · REV 3 SCHEMATIC</span>
-        <h3>A 50 A transient-load tester for Formula Slug's LV power supplies</h3>
-        <p class="muted" style="margin-top:10px">A load slammer suddenly yanks a large, fast current step out of a power supply so you can watch on a scope how well it holds regulation. I'm designing ours from the ground up in KiCad for the FS5 car's custom LV supplies.</p>
+        <span class="badge">● CURRENTLY TESTING · SWITCH-MODE PCB</span>
+        <h3>A ~12 A load-step tester for Formula Slug's 12 V DC-DC converter</h3>
+        <p class="muted" style="margin-top:10px">A load slammer suddenly yanks a large, fast current step out of a power supply so you can watch on a scope how well it holds regulation. I designed ours in KiCad for the FS5 car's 12 V DC-DC converter: each step is 25% of the converter's 50 A rating, so with an electronic load holding 0 A or 37.5 A it tests the 0→25% and 75→100% steps.</p>
         <div class="specs">
-          <div class="spec"><div class="v">~50 A</div><div class="l">Peak load step</div></div>
+          <div class="spec"><div class="v">~12 A</div><div class="l">Load step at 12 V</div></div>
           <div class="spec"><div class="v">5 mΩ</div><div class="l">Kelvin current sense</div></div>
-          <div class="spec"><div class="v">BNC</div><div class="l">Trigger in / I-mon out</div></div>
+          <div class="spec"><div class="v">48.5 × 42 mm</div><div class="l">2-layer PCB</div></div>
         </div>
         <ul class="bul">
-          <li><b>Closed-loop linear control:</b> moved from a hard-switched gate driver (UCC27511) to an op-amp loop (OPA994) that drives the MOSFET in its linear region — current tracks the trigger waveform, so slew rate and step size are adjustable.</li>
-          <li><b>Power stage:</b> IPB017N10N5LF 100 V / 1.7 mΩ MOSFET with a single 200 mΩ high-power load resistor (replaced a 12-resistor parallel bank to cut footprint).</li>
-          <li><b>Measurement:</b> 4-terminal 5 mΩ sense resistor with a net-tie separating power and signal ground; 50 Ω-terminated coax trigger and current-monitor output for clean scope captures.</li>
-          <li><b>Gate network:</b> series gate resistor to damp ringing, 10 kΩ pull-down so the FET fails safe-off.</li>
+          <li><b>Switch-mode design:</b> started as an op-amp loop running the MOSFET in its linear region; after review with the PE lead I switched to running it fully on or off, which avoids putting up to ~240 W into the MOSFET in linear mode and keeps it inside its safe operating area.</li>
+          <li><b>Power stage:</b> a 1 &Omega;, 100 W thick-film resistor (Ohmite TEH100) sets the step at 12 V / 1.007 &Omega; &asymp; 11.9 A; a TI CSD19536KTT (100 V, 2.4 m&Omega; max) does the switching, driven by a UCC27511A gate driver (4 A source / 8 A sink).</li>
+          <li><b>Measurement:</b> 4-terminal 5 m&Omega; shunt gives 5 mV/A (&asymp;60 mV at 12 A) to a BNC for the scope; signal and power ground meet at a single net tie, and a bottom-layer ground pour sits under the sense trace.</li>
+          <li><b>Layout:</b> the 12 A loop runs on the top layer with its 3 mm return directly underneath on the bottom layer to keep loop inductance low; 0 DRC errors.</li>
+          <li><b>Operating limit:</b> each 1 ms pulse puts 142 W into the resistor (0.14 J), so without a heatsink it runs at 1 ms pulses, 10 Hz or slower (&asymp;1.4 W average, under its 3.5 W free-air rating).</li>
         </ul>
-        <div class="tags"><span class="tag2">KiCad</span><span class="tag2">Analog control loop</span><span class="tag2">Power MOSFETs</span><span class="tag2">Kelvin sensing</span><span class="tag2">Signal integrity</span></div>
+        <div class="tags"><span class="tag2">KiCad</span><span class="tag2">PCB layout</span><span class="tag2">Power MOSFETs</span><span class="tag2">Gate drivers</span><span class="tag2">Kelvin sensing</span></div>
       </div>
-      <div class="media"><img src="assets/img/loadslammer-schematic.jpg" alt="Load Slammer Rev 3 KiCad schematic" data-cap="FS5 Load Slammer — Rev 3 schematic (op-amp linear control loop)"></div>
+      <div class="media" style="background:#0d1117"><img src="assets/img/loadslammer-pcb.jpg" alt="FS5 Load Slammer routed 2-layer PCB in KiCad" data-cap="FS5 Load Slammer — routed 2-layer PCB (48.5 × 42 mm), bottom ground pour shown"></div>
     </div>
     <div class="subgrid reveal">
-      <div class="card"><img src="assets/img/loadslammer-block.jpg" alt="Load slammer system block diagram" data-cap="System test setup + internal architecture"><p>System block diagram: PSU → DUT converter → load slammer, with a multi-channel scope capturing V<sub>out</sub> and current.</p></div>
-      <div class="card"><img src="assets/img/loadslammer-rev2.jpg" alt="Load slammer Rev 2 schematic" data-cap="Rev 2 — refactored to FS-LV standards"><p>Rev 2: refactored to the FS-LV standards with labeled subsystems — Logic Regulator, Gate Control, Load Bank, Switch &amp; Sense.</p></div>
-      <div class="card" style="padding:18px"><h4 style="margin-bottom:10px">What's next</h4><ul class="bul" style="font-size:.88rem"><li>Finalize schematic &amp; BOM with the PE lead</li><li>PCB layout: short, wide 50 A loop; isolate the sense trace</li><li>Fab, bring-up, and first transient captures</li></ul></div>
+      <div class="card"><img src="assets/img/loadslammer-schematic.jpg" alt="Earlier Rev 3 linear-mode schematic" data-cap="Earlier Rev 3 schematic: op-amp linear control loop, replaced by the switch-mode design"><p>Earlier Rev 3: an op-amp loop ran the MOSFET in its linear region. Replaced by the switch-mode design after review.</p></div>
+      <div class="card" style="padding:18px"><h4 style="margin-bottom:10px">Test setup</h4><ul class="bul" style="font-size:.88rem"><li>12 V DC-DC converter (50 A) as the device under test</li><li>Electronic load holds the 0 A or 37.5 A baseline</li><li>Function generator triggers 1 ms pulses; scope reads V<sub>out</sub> and the 5 mV/A current signal</li></ul></div>
+      <div class="card" style="padding:18px"><h4 style="margin-bottom:10px">Now / next</h4><ul class="bul" style="font-size:.88rem"><li>Testing: capture the 0&rarr;25% and 75&rarr;100% load steps</li><li>Measure the voltage dip and recovery time</li><li>Decide on a heatsink for longer or faster pulses</li></ul></div>
     </div>
   </div>
 </section>
